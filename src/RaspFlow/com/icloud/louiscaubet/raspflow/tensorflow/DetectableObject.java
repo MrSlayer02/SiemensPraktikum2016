@@ -1,12 +1,16 @@
 package com.icloud.louiscaubet.raspflow.tensorflow;
 
 import com.icloud.louiscaubet.raspflow.objecttasks.CoffeeCupTask;
-import com.icloud.louiscaubet.raspflow.objecttasks.ComputerTask;
+import com.icloud.louiscaubet.raspflow.objecttasks.IPhoneTask;
+import com.icloud.louiscaubet.raspflow.objecttasks.KeyboardTask;
+import com.icloud.louiscaubet.raspflow.objecttasks.WaterJugTask;
 
 public enum DetectableObject {
 	
-	COFFEE_CUP("coffee_cup", new CoffeeCupTask(), " cup "),
-	COMPUTER("computer", new ComputerTask(), "computer");
+	IPHONE("iphone", new IPhoneTask(), "cellular telephone", "cellular phone", "cellphone", "mobile phone", "iPod"),
+	WATERJUG("water jug", new WaterJugTask(), "teapot", "water jug", "teapot "), 
+	KEYBOARD("keyboard", new KeyboardTask(), "computer keyboard", "keypad"),
+	COFFEE_CUP("Coffee Cup", new CoffeeCupTask(), "cup", "coffee mug", "coffee mug ", "cup ");
 	
 	private String[] tensorflownames;
 	private String name;
