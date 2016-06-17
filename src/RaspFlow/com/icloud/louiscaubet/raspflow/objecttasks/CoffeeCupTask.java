@@ -1,26 +1,39 @@
 package com.icloud.louiscaubet.raspflow.objecttasks;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-import java.util.Scanner;
-
-import com.icloud.louiscaubet.raspflow.ObjectDetector;
-import com.icloud.louiscaubet.raspflow.RaspFlow;
+//import java.io.File;
+//import java.io.IOException;
+//import java.util.List;
+//import java.util.Scanner;
+//
+//import com.icloud.louiscaubet.raspflow.ObjectDetector;
+//import com.icloud.louiscaubet.raspflow.RaspFlow;
 import com.icloud.louiscaubet.raspflow.api.Motion;
-import com.icloud.louiscaubet.raspflow.tensorflow.DetectableObject;
-import com.icloud.louiscaubet.raspflow.tensorflow.TensorFlowExecutor;
-import com.icloud.louiscaubet.raspflow.tensorflow.TensorFlowLogInterpreter;
+//import com.icloud.louiscaubet.raspflow.tensorflow.DetectableObject;
+//import com.icloud.louiscaubet.raspflow.tensorflow.TensorFlowExecutor;
+//import com.icloud.louiscaubet.raspflow.tensorflow.TensorFlowLogInterpreter;
 
 public class CoffeeCupTask implements Runnable {
 	
-	private static RaspFlow raspflow = RaspFlow.getInstance();
+//	private static RaspFlow raspflow = RaspFlow.getInstance();
 	
-	private boolean followCup = true;
+//	private boolean followCup = true;
 
 	@Override
 	public void run() {
 		
+		try {
+			
+			Motion.setSpeed(255);
+			Motion.rightRotate();
+			Thread.sleep(50000);
+			Motion.stop();
+			
+		}
+		catch (Exception e){
+			
+		}
+		
+		/*
 		raspflow.setGoPiGoClassicMove(false);
 		ObjectDetector.pause = true;
 		
@@ -130,9 +143,11 @@ public class CoffeeCupTask implements Runnable {
 		}
 		
 		stopFollowCup();
+		*/
 
 	}
 	
+	/*
 	private void stopFollowCup(){
 		raspflow.setGoPiGoClassicMove(true);
 		ObjectDetector.pause = false;
@@ -141,6 +156,6 @@ public class CoffeeCupTask implements Runnable {
 	private void onExceptionCaught(){
 		System.out.println("Exception caught while following cup. Stopping Cup Follow");
 		followCup = false;
-	}
+	}*/
 
 }
